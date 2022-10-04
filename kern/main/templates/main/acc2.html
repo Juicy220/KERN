@@ -10,5 +10,94 @@
         <li class="nav-item"><a href="/acc2" class="nav-link">Кг не стационар</a></li>
       </ul>
     </header>
-    <h1>Кг не стационар 11</h1>
+    <h1>Кг не стационар</h1>
+    <form action="" method="get">
+        <div class="container">
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">№ Образца</label>
+            <div class="col-sm-10">
+                {% for el in num %}
+              <input type="text" name="number" value="{{ el.num_Образца }}">
+                {% endfor %}
+            </div>
+        </div>
+
+            <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Кг Кл не стационарный, мД</label>
+            <div class="col-sm-10">
+              <input type="text" name="kg_not">
+            </div>
+        </div>
+
+            <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Кг стационарный, мД</label>
+            <div class="col-sm-10">
+              <input type="text" name="kg">
+            </div>
+        </div>
+
+            <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Пористость, %</label>
+            <div class="col-sm-10">
+              <input type="text" name="pori">
+            </div>
+        </div>
+
+            <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Объем пор, см3</label>
+            <div class="col-sm-10">
+              <input type="text" name="objem">
+            </div>
+        </div>
+
+            <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Эксперимент</label>
+            <div class="col-sm-10">
+              <input type="text" name="experiment">
+            </div>
+        </div>
+
+            <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Дизайн эксперимента</label>
+            <div class="col-sm-10">
+              <input type="text" name="design">
+            </div>
+        </div>
+
+            <button type="button" class="btn btn-info">Предыдущий</button>
+            <button type="button" class="btn btn-info">Следующий</button>
+<br></br>
+
+        </div>
+
+
+    </form>
+<table class="table table-striped table-bordered table-hover text-center">
+        <thead class="thead-dark">
+           <tr>
+               <th scope="col">Дата исследования</th>
+               <th scope="col">№_Образца</th>
+               <th scope="col">Кг Кл не стационарный, мД</th>
+               <th scope="col">Пористость, %</th>
+               <th scope="col">Длина, см</th>
+               <th scope="col">Диаметр, см</th>
+               <th scope="col">Объем пор, см3</th>
+               <th scope="col">Газопроницаемость, мД</th>
+               <th scope="col">Специалист</th>
+           </tr>
+        </thead>
+    {% for el in acc2 %}
+            <tr>
+                <td>{{ el.Дата_исследования }}</td>
+                <td>{{ el.num_Образца }}</td>
+                <td>{{ el.Кг_Кл_не_стационарный_мД }}</td>
+                <td>{{ el.Пористость }}</td>
+                <td>{{ el.Длина_см }}</td>
+                <td>{{ el.Диаметр_см }}</td>
+                <td>{{ el.Объем_пор_см3 }}</td>
+                <td>{{ el.Газопроницаемость_мД }}</td>
+                <td>{{ el.Специалист }}</td>
+            </tr>
+    {% endfor %}
+    </table>
 {% endblock %}

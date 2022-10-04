@@ -74,3 +74,18 @@ class acc_kern_db(models.Model):
     class Meta:
         managed = False
         db_table = 'acc_kern_db'
+
+class acc_kern_not_stat(models.Model):
+    Дата_исследования=models.TextField()
+    num_Образца=models.IntegerField(primary_key=True)
+    Кг_Кл_не_стационарный_мД=models.IntegerField()
+    Пористость=models.IntegerField()
+    Длина_см=models.IntegerField()
+    Диаметр_см=models.IntegerField()
+    Объем_пор_см3=models.IntegerField()
+    Газопроницаемость_мД=models.IntegerField()
+    Специалист=models.FloatField()
+
+    class Meta:
+        managed = False
+        db_table = 'acc_kern_not_stat'

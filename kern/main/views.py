@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import kern_db, kern_db_2, acc_kern_db
+from .models import kern_db, kern_db_2, acc_kern_db, acc_kern_not_stat
 from plotly.offline import plot
 import plotly.graph_objects as go
 
@@ -49,4 +49,12 @@ def acc(request):
     return render(request, 'main/acc.html',{'acc':acc})
 
 def acc2(request):
-    return render(request, 'main/acc2.html')
+    acc=acc_kern_db.objects.all()
+    acc2=acc_kern_not_stat.objects.all()
+    num=acc.all()[:1]
+
+    context = {
+        'acc2':acc2,
+        'num':num
+    }
+    return render(request, 'main/acc2.html', context)
