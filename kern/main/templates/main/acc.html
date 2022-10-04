@@ -11,4 +11,54 @@
       </ul>
     </header>
     <h1>БД Керн</h1>
+<table class="table table-striped table-bordered table-hover text-center">
+        <thead class="thead-dark">
+           <tr>
+               <th scope="col">Код</th>
+               <th scope="col">Дата</th>
+               <th scope="col">Недропользователь/ДО</th>
+               <th scope="col">Месторождение</th>
+               <th scope="col">Скважина</th>
+               <th scope="col">№_Образца</th>
+               <th scope="col">Длина, см</th>
+               <th scope="col">Диаметр, см</th>
+               <th scope="col">Масса сух, гр</th>
+               <th scope="col">Кг Кл не стационарный, мД</th>
+               <th scope="col">Кг стационарный, мД</th>
+               <th scope="col">Пористость, %</th>
+               <th scope="col">Пористость Ж_Н, %</th>
+               <th scope="col">Объем пор, см3</th>
+               <th scope="col">Эксперимент</th>
+               <th scope="col">Результат эксперимента(да,нет)</th>
+               <th scope="col">Дизайн эксперимента</th>
+               <th scope="col">Электронный журнал эксперимента</th>
+               <th scope="col">Томография</th>
+               <th scope="col">Специалист</th>
+           </tr>
+        </thead>
+        {% for el in acc %}
+        <tr>
+            <td>{{ el.Код }}</td>
+            <td>{{ el.Дата }}</td>
+            <td>{{ el.Недропользователь_ДО }}</td>
+            <td>{{ el.Месторождение }}</td>
+            <td>{{ el.Скважина }}</td>
+            <td>{{ el.num_Образца }}</td>
+            <td>{{ el.Длина_см }}</td>
+            <td>{{ el.Диаметр_см }}</td>
+            <td>{{ el.Масса_сух_гр }}</td>
+            <td>{{ el.Кг_Кл_не_стационарный_мД }}</td>
+            <td>{{ el.Кг_стационарный_мД }}</td>
+            <td>{{ el.Пористость }}</td>
+            <td>{{ el.Пористость_Ж_Н }}</td>
+            <td>{{ el.Объем_пор_см3 }}</td>
+            <td>{{ el.Эксперимент }}</td>
+            <td>{{ el.Результат_эксперимента_да_нет }}</td>
+            <td>{{ el.Дизайн_эксперимента }}</td>
+            <td>{{ el.Электронный_журнал_эксперимента }}</td>
+            <td>{{ el.Томография }}</td>
+            <td>{{ el.Специалист }}</td>
+        </tr>
+        {% endfor %}
+    </table>
 {% endblock %}
