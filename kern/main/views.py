@@ -47,3 +47,6 @@ def kern2(request):
 def acc(request):
     acc=acc_kern_db.objects.all()
     return render(request, 'main/acc.html',{'acc':acc})
+
+def acc2(request):
+    return render(request, 'main/acc2.html')
