@@ -1,0 +1,80 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Керн БД
+{% endblock %}
+{% block body %}
+    <h1>БД Керна</h1>
+<form action="" method="get">
+<div class="row">
+    <div class="col-lg-2 text-center"><p class="lead">Код</p></div>
+    <div class="col-lg-5">
+        <input class="form-control" type="search" name="code" value="{{ code }}">
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-2 text-center"><p class="lead">Длина</p></div>
+    <div class="col-lg-10">
+        <div class="input-group">
+        <div class="input-group-prepend">
+            <input type="text" class="form-control" placeholder="От" name="dlina_gr" value="{{ dlina_gr }}">
+            <input type="text" class="form-control" placeholder="До" name="dlina_ls" value="{{ dlina_ls }}">
+        </div>
+        </div>
+    </div>
+</div>
+    <div class="container"><br></br>
+        <button type="submit" class="btn btn-primary" href="/">Поиск</button>
+        <button type="submit" class="btn btn-primary" href="/" onclick="clear">Очистить</button>
+    </div>
+</form>
+
+<br></br>
+
+        <table class="table table-striped table-bordered table-hover text-center">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">Код</th>
+                <th scope="col">Дата</th>
+                <th scope="col">Недропользователь/ДО</th>
+                <th scope="col">Месторождение</th>
+                <th scope="col">Скважина</th>
+                <th scope="col">№ образца</th>
+                <th scope="col">Глубина отбора, м</th>
+                <th scope="col">Длина, см</th>
+                <th scope="col">Диаметр, см</th>
+                <th scope="col">Объем пор, см3</th>
+                <th scope="col">Пористость, %</th>
+                <th scope="col">Газопроницаемость, мД</th>
+                <th scope="col">Газопроницаемость Кл, мД</th>
+                <th scope="col">Газопроницаемость стац, мД</th>
+                <th scope="col">Масса образца, гр</th>
+                <th scope="col">Эксперимент</th>
+                <th scope="col">Результат эксперимента (да/нет)</th>
+                <th scope="col">Томография(да/нет)</th>
+            </tr>
+            </thead>
+            {% for el in kern %}
+            <tr>
+                <td>{{ el.Код }}</td>
+                <td>{{ el.Дата }}</td>
+                <td>{{ el.Недропользователь_ДО }}</td>
+                <td>{{ el.Месторождение }}</td>
+                <td>{{ el.Скважина }}</td>
+                <td>{{ el.образца }}</td>
+                <td>{{ el.Глубина_отбора_м }}</td>
+                <td>{{ el.Длина_см }}</td>
+                <td>{{ el.Диаметр_см }}</td>
+                <td>{{ el.Объем_пор_см3 }}</td>
+                <td>{{ el.Пористость }}</td>
+                <td>{{ el.Газопроницаемость_мД }}</td>
+                <td>{{ el.Газопроницаемость_Кл_мД }}</td>
+                <td>{{ el.Газопроницаемость_стац_мД }}</td>
+                <td>{{ el.Масса_образца_гр }}</td>
+                <td>{{ el.Эксперимент }}</td>
+                <td>{{ el.Результат_эксперимента_да_нет }}</td>
+                <td>{{ el.Томография_да_нет }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+{% endblock %}
