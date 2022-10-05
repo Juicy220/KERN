@@ -13,59 +13,83 @@
     <h1>Кг не стационар</h1>
     <form action="" method="get">
         <div class="container">
-        <div class="form-group row">
+
+        <!---<div class="form-group row">
             <label class="col-sm-2 col-form-label">№ Образца</label>
             <div class="col-sm-10">
                 {% for el in num %}
               <input type="text" name="number" value="{{ el.num_Образца }}">
                 {% endfor %}
             </div>
-        </div>
+        </div>--->
+            <div class="form-group row">
+                <label class="col-sm-2">Номер</label>
+                <div class="col-sm-10">
+                    <select class="form-select" aria-label="Default select example" name="ff">
+                        {% for el in acc %}
+                            <option>{{ el.num_Образца }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
 
             <div class="form-group row">
             <label class="col-sm-2 col-form-label">Кг Кл не стационарный, мД</label>
             <div class="col-sm-10">
-              <input type="text" name="kg_not">
+                {% for el in acc1 %}
+              <input type="text" name="kg_not" value="{{ el.Кг_Кл_не_стационарный_мД }}">
+                {% endfor %}
             </div>
         </div>
 
             <div class="form-group row">
             <label class="col-sm-2 col-form-label">Кг стационарный, мД</label>
             <div class="col-sm-10">
-              <input type="text" name="kg">
+                {% for el in acc1 %}
+              <input type="text" name="kg" value="{{ el.Кг_стационарный_мД }}">
+                {% endfor %}
             </div>
         </div>
 
             <div class="form-group row">
             <label class="col-sm-2 col-form-label">Пористость, %</label>
             <div class="col-sm-10">
-              <input type="text" name="pori">
+                {% for el in acc1 %}
+              <input type="text" name="pori" value="{{ el.Пористость }}">
+                {% endfor %}
             </div>
         </div>
 
             <div class="form-group row">
             <label class="col-sm-2 col-form-label">Объем пор, см3</label>
             <div class="col-sm-10">
-              <input type="text" name="objem">
+                {% for el in acc1 %}
+              <input type="text" name="objem" value="{{ el.Объем_пор_см3 }}">
+                {% endfor %}
             </div>
         </div>
 
             <div class="form-group row">
             <label class="col-sm-2 col-form-label">Эксперимент</label>
             <div class="col-sm-10">
-              <input type="text" name="experiment">
+                {% for el in acc1 %}
+              <input type="text" name="experiment" value="{{ el.Эксперимент }}">
+                {% endfor %}
             </div>
         </div>
 
             <div class="form-group row">
             <label class="col-sm-2 col-form-label">Дизайн эксперимента</label>
             <div class="col-sm-10">
-              <input type="text" name="design">
+                {% for el in acc1 %}
+              <input type="text" name="design" value="{{ el.Дизайн_эксперимента }}">
+                {% endfor %}
             </div>
         </div>
 
-            <button type="button" class="btn btn-info">Предыдущий</button>
+            <button type="button" class="btn btn-info" href="/acc2">Предыдущий</button>
             <button type="button" class="btn btn-info">Следующий</button>
+            <button type="submit" class="btn btn-primary" href="/acc2">Поиск</button>
 <br></br>
 
         </div>

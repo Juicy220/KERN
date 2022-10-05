@@ -5,8 +5,14 @@ import plotly.graph_objects as go
 
 def index(request):
     code = request.GET.get('code')
+    if code is None:
+        code=""
     dlina_gr=request.GET.get('dlina_gr')
+    if dlina_gr is None:
+        dlina_gr=''
     dlina_ls=request.GET.get('dlina_ls')
+    if dlina_ls is None:
+        dlina_ls=''
     kern=kern_db.objects.all()
 
     if code != '' and code is not None:
@@ -49,12 +55,15 @@ def acc(request):
     return render(request, 'main/acc.html',{'acc':acc})
 
 def acc2(request):
-    acc=acc_kern_db.objects.all()
-    acc2=acc_kern_not_stat.objects.all()
-    num=acc.all()[:1]
+    num = request.GET.get('ff')
+    acc = acc_kern_db.objects.all()
+    acc1= acc.filter(num_Образца=num)
+    acc2=acc_kern_not_stat.objects.filter(num_Образца=num)
+
 
     context = {
         'acc2':acc2,
-        'num':num
+        'acc':acc,
+        'acc1':acc1
     }
     return render(request, 'main/acc2.html', context)
